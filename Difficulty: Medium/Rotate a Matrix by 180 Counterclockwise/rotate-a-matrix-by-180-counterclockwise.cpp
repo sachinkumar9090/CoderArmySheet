@@ -3,19 +3,17 @@ class Solution {
     void rotateMatrix(vector<vector<int>>& mat) {
         // code here
         int n = mat.size();
-        
         for(int i=0;i<n;i++){
-            int start = 0, end = n-1;
+            int start = 0,end = n-1;
             while(start<end){
-                swap(mat[start][i],mat[end][i]);
+                swap(mat[i][start],mat[i][end]);
                 start++,end--;
             }
         }
-        
-         for(int i=0;i<n;i++){
-            int start = 0, end = n-1;
+        for(int i=0;i<n;i++){
+            int start = 0,end= n-1;
             while(start<end){
-                swap(mat[i][start],mat[i][end]);
+                swap(mat[start][i],mat[end][i]);
                 start++,end--;
             }
         }
