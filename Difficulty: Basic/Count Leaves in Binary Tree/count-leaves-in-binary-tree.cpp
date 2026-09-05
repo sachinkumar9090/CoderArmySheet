@@ -6,29 +6,29 @@ struct Node
     Node* left;
     Node* right;
 }; */
-
-// Class Solution
-
-void countes(Node *root , int &count){
-    if(root==NULL){
+void countleaf(Node *root,int &count){
+    if(!root){
         return;
     }
     if(!root->left && !root->right){
         count++;
         return;
     }
-    countes(root->left,count);
-    countes(root->right,count);
+    countleaf(root->left,count);
+    countleaf(root->right,count);
     
 }
+
+// Class Solution
 class Solution {
   public:
     // Function to count the number of leaf nodes in a binary tree.
     int countLeaves(Node* root) {
         // write code here
-        int count =0;
-        countes(root,count);
+        int count = 0;
+        countleaf(root,count);
         return count;
+        
         
     }
 };
