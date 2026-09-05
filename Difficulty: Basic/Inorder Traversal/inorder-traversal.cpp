@@ -11,14 +11,13 @@ class Node {
     }
 };*/
 
-void Inorder(Node *root,vector<int>&ans){
-    if(root == NULL){
+void inorder(Node *root,vector<int> &ans){
+    if(root==NULL){
         return;
-        
     }
-    Inorder(root->left,ans);
+    inorder(root->left,ans);
     ans.push_back(root->data);
-    Inorder(root->right,ans);
+    inorder(root->right,ans);
 }
 
 class Solution {
@@ -26,7 +25,9 @@ class Solution {
     vector<int> inOrder(Node* root) {
         // code here
         vector<int> ans;
-        Inorder(root,ans);
+        inorder(root,ans);
         return ans;
+        
+        
     }
 };
