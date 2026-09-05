@@ -10,24 +10,14 @@ public:
     }
 }; */
 
-void getsize(Node *root,int &sum){
-    if(root==NULL){
-        return;
-    }
-    sum++;
-    getsize(root->left,sum);
-    getsize(root->right,sum);
-    
-}
-
 class Solution {
   public:
     int getSize(Node* root) {
-        
         // code here
-        int sum =0;
-        getsize(root,sum);
-        return sum;
+        if(!root){
+            return 0;
+        }
         
+        return 1+ getSize(root->left) + getSize(root->right);
     }
 };
