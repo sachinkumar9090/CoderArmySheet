@@ -16,7 +16,7 @@ class Solution {
   public:
     int countNonLeafNodes(Node* root) {
         // Code here
-        if(root==NULL){
+        if(!root){
             return 0;
         }
         
@@ -24,7 +24,6 @@ class Solution {
             return 0;
         }
         
-        return (1+ countNonLeafNodes(root->left) + countNonLeafNodes(root->right));
-        
+        return 1 + countNonLeafNodes(root->left)+countNonLeafNodes(root->right);
     }
 };
