@@ -1,0 +1,38 @@
+/* Structure of binary tree node
+class Node {
+  public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = right = nullptr;
+    }
+};*/
+
+int height(Node *root,bool &valid){
+    
+    if(root==NULL){
+        return 0;
+    }
+    
+    int l = height(root->left,valid);
+    int r = height(root->right,valid);
+    if(abs(l-r)>1){
+       valid = 0;
+    }
+    return 1 +max(l,r);
+    
+}
+
+class Solution {
+  public:
+    bool isBalanced(Node* root) {
+        // code here
+        bool valid = 1;
+        height(root,valid);
+        return valid;
+        
+    }
+};
