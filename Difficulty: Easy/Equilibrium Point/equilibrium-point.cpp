@@ -2,20 +2,21 @@ class Solution {
   public:
     int findEquilibrium(vector<int> &arr) {
         // code here
-        int totalsum = 0;
+        int sum =0;
+        int index = -1;
         for(int i=0;i<arr.size();i++){
-            totalsum +=arr[i];
-        }
-        int ans = -1;
-        int left = 0;
+              sum +=arr[i];
+        } 
+        int prefixsum =0;
         for(int i=0;i<arr.size();i++){
-             totalsum -=arr[i];
-            if(left == totalsum){
-                return i;
-            }else {
-                left +=arr[i];
+              if(prefixsum == sum-prefixsum-arr[i]){
+                  return i;
+                  break;
+              }
+              prefixsum +=arr[i];
+           
             }
-        }
-        return -1;
+        return index;
+        
     }
 };
