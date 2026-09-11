@@ -18,7 +18,6 @@ class Solution {
         if(!root){
             return -1;
         }
-        
-        return 1 + max(height(root->left),height(root->right));
+        return 1+max(height(root->left),height(root->right));
     }
 };
